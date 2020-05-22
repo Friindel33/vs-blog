@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <h2>Latest posts</h2>
+  </head>
+  <body>
+      <% @results.each do |details| %>
+        <p>
+          <%= details['content'] %>
+          <br />
+          <br />
+          Added at: <%= details['created_date'] %>
+          <br />
+          <a href="/details/<%= details['id'] %>"> Comments</a>
+        </p>
+        <hr />
+      <% end %>
+  </body>
+  <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified by Friindel33</a>"
+
+</html>
