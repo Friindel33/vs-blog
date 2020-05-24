@@ -32,7 +32,9 @@ configure do
 end
 
 get '/' do
+	post_id = params[:post_id]
 	@results = @db.execute 'select * from posts order by id desc'
+#	@total_comments = @db.execute 'SELECT * FROM comments where post_id = ?' , [post_id]
 	erb :index
 end
 
@@ -54,12 +56,9 @@ end
 
 get '/details/:post_id' do
 	post_id = params[:post_id]
-
 	results = @db.execute 'select * from posts where id = ?', [post_id]
 	@row = results[0]
-
 	@comments = @db.execute 'select * from comments where post_id = ? order by id', [post_id]
-
 	erb :details
 end
 
